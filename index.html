@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResuPro — Резюме түзүү</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="#" class="logo"><span>R</span> ResuPro</a>
+
+    <nav>
+      <a href="#home" data-i="home">Башкы бет</a>
+      <a href="#templates" data-i="templates">Шаблондор</a>
+      <a href="#editor" data-i="editor">Редактор</a>
+    </nav>
+
+    <div class="nav-controls">
+      <button type="button" id="themeToggleBtn" class="theme-btn" title="Түнкү режим">🌙</button>
+
+      <select id="language" aria-label="Тил тандоо">
+        <option value="ky">Кыргызча</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="uz"></option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="tag">✦ YOUR CAREER STARTS HERE</span>
+        <h1>Келечектеги карьераңды
+          <span>ResuPro</span> менен түз!
+        </h1>
+        <p>Бир нече мүнөттө кооз, заманбап жана профессионалдуу резюме түз.</p>
+        <a href="#editor" class="button">Резюме түзүү →</a>
+        <a href="#templates" class="button secondary">Шаблондор</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="avatar">К</div>
+        <h2>Казыева Бурмагүл</h2>
+        <p>Маркетолог · Бишкек</p>
+        <hr>
+        <h3>ӨЗҮМ ЖӨНҮНДӨ</h3>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <h3>ЖӨНДӨМДӨР</h3>
+        <div class="skills">
+          <span>Коммуникация</span>
+          <span>Креатив</span>
+          <span>Команда</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="templates">
+      <h2>Өзүңө ылайык шаблон танда</h2>
+      <p class="section-desc">Бир басуу менен резюмеңдин стилин өзгөрт.</p>
+
+      <div class="template-grid">
+        <button class="template selected" data-template="classic">
+          <div class="mini classic">CV</div>
+          <strong>Классикалык</strong>
+        </button>
+        <button class="template" data-template="modern">
+          <div class="mini modern">CV</div>
+          <strong>Заманбап</strong>
+        </button>
+        <button class="template" data-template="bold">
+          <div class="mini bold">CV</div>
+          <strong>Креативдүү</strong>
+        </button>
+        <button class="template" data-template="green">
+          <div class="mini green">CV</div>
+          <strong>Элеганттуу</strong>
+        </button>
+      </div>
+    </section>
+
+    <section class="section editor-section" id="editor">
+      <h2>Резюмеңди түз</h2>
+      <p class="section-desc">Маалыматтарыңды жаз — өзгөрүүлөр дароо көрүнөт.</p>
+
+      <!-- Толтурулушун текшерүү (Прогресс бар) -->
+      <div class="completion-container">
+        <div class="completion-header">
+          <span>Резюменин толтурулушу:</span>
+          <span id="completionPercentage">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="editor-layout">
+        <form id="resumeForm" class="form-panel">
+          <!-- Сүрөт кошуу -->
+          <label>Сүрөтүңүз
+            <input type="file" id="photoInput" accept="image/*">
+          </label>
+
+          <!-- Түстү тандоо -->
+          <label>Резюменин акцент түсү
+            <input type="color" id="themeColor" value="#7138ef">
+          </label>
+
+          <label>Аты-жөнү *
+            <input id="fullName" value="Казыева Бурмагүл" maxlength="70" required>
+          </label>
+
+          <label>Кесиби *
+            <input id="jobTitle" value="Маркетолог" maxlength="80" required>
+          </label>
+
+          <label>Email *
+            <input id="email" type="email" value="kazyeva.burmagul@gmail.com" required>
+          </label>
+
+          <label>Телефон *
+            <input id="phone" value="+996 555 123 456" required>
+          </label>
+
+          <label>Шаар
+            <input id="location" value="Бишкек, Кыргызстан">
+          </label>
+
+          <label>Өзүм жөнүндө
+            <textarea id="summary">Натыйжага багытталган, чыгармачыл адисмин. Команда менен иштөөнү жана жаңы идеяларды өнүктүрүүнү жактырам.</textarea>
+          </label>
+
+          <label>Иш тажрыйбасы
+            <textarea id="experience">Контент жана маркетинг кампанияларын пландаштыруу.
+Социалдык тармактарды талдоо.</textarea>
+          </label>
+
+          <label>Билими
+            <input id="education" value="Маркетинг боюнча бакалавр">
+          </label>
+
+          <label>Жөндөмдөр (үтүр менен бөл)
+            <input id="skills" value="SMM, Коммуникация, Контент, Аналитика">
+          </label>
+
+          <!-- Кошумча бөлүмдөр -->
+          <label>Тилдер (үтүр менен бөл)
+            <input id="languages" value="Кыргызча (эне тили), Русский (эркин), English (B2)">
+          </label>
+
+          <label>Сертификаттар
+            <textarea id="certificates">КВН 1-орун диплом, Ардак грамоталар</textarea>
+          </label>
+
+          <label>Курстар жана жетишкендиктер
+            <textarea id="courses">SMM & Content Creation Intensive, 2024</textarea>
+          </label>
+
+          <!-- Баскычтар -->
+          <div class="button-group">
+            <button type="button" id="createBtn" class="button primary-btn">
+              Резюме түзүү ✨
+            </button>
+            <button type="button" id="downloadBtn" class="button secondary-btn">
+              PDF сактоо ↓
+            </button>
+            <button type="button" id="resetBtn" class="button reset-btn">
+              Кайра баштоо
+            </button>
+          </div>
+        </form>
+
+        <article class="resume-preview" id="resumePreview">
+          <header class="resume-header">
+            <div class="resume-header-main">
+              <div id="previewPhotoContainer" class="preview-photo-box" style="display: none;">
+                <img id="previewPhoto" src="" alt="Сүрөт">
+              </div>
+              <div>
+                <h2 id="previewName">Казыева Бурмагүл</h2>
+                <h3 id="previewRole">Маркетолог</h3>
+                <p id="previewContact"></p>
+              </div>
+            </div>
+          </header>
+
+          <section>
+            <h3>ӨЗҮМ ЖӨНҮНДӨ</h3>
+            <p id="previewSummary"></p>
+          </section>
+
+          <section>
+            <h3>ИШ ТАЖРЫЙБАСЫ</h3>
+            <p id="previewExperience"></p>
+          </section>
+
+          <section>
+            <h3>БИЛИМ</h3>
+            <p id="previewEducation"></p>
+          </section>
+
+          <section>
+            <h3>ЖӨНДӨМДӨР</h3>
+            <div id="previewSkills" class="skills"></div>
+          </section>
+
+          <!-- Кошумча бөлүмдөрдүн превьюсу -->
+          <section id="languagesSection">
+            <h3>ТИЛДЕР</h3>
+            <p id="previewLanguages"></p>
+          </section>
+
+          <section id="certificatesSection">
+            <h3>СЕРТИФИКАТТАР</h3>
+            <p id="previewCertificates"></p>
+          </section>
+
+          <section id="coursesSection">
+            <h3>КУРС ТАР ЖАНА ЖЕТИШКЕНДИКТЕР</h3>
+            <p id="previewCourses"></p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#" class="logo"><span>R</span> ResuPro</a>
+    <p>Карьераңды бүгүн башта. © 2026</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
